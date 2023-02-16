@@ -2,6 +2,7 @@ import { FC } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Login from "../../views/Login"
 import SignUp from "../../views/SignUp"
+import Welcome from "../../views/Welcome"
 
 
 
@@ -17,8 +18,8 @@ const Router: FC = () => {
                 <Route path="/" element={<Login />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signUp" element={<SignUp />} />
-                {/* <Route path="/books" element={<Books />} />
-                <Route path="/books/details/:listName" element={<BooksDetails />} /> */}
+                <Route path="/welcome" element={<Welcome />} />
+                {/* <Route path="/books/details/:listName" element={<BooksDetails />} /> */}
             </Routes>
         </BrowserRouter>
 

@@ -17,13 +17,28 @@ const SignUp: FC<Props> = () => {
     const navigate = useNavigate();
 
     const handleSubmit = useCallback(
-        async () => {
+        async (values: any) => {
             try {
+                const response = await fetch('http://localhost:8000/auth/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: values.email,
+                        password: values.password
+                    })
+                });
+                console.log(response);
 
-                navigate("/books");
+                if (response.ok) {
+                    navigate('/welcome')
+                } else {
+                    alert(response.statusText);
+                }
 
             } catch (error: any) {
-
+                console.log(error)
 
             }
 

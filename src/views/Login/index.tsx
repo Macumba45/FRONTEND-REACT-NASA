@@ -13,14 +13,29 @@ const Login: FC<Props> = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [firebaseErrorMessage, setFirebaseErrorMessage] = useState('');
+
 
     const handleSubmit = useCallback(
-        async (values: typeof initialValues, { setErrors }: any) => {
+        async (values: any) => {
 
             try {
+                const response = await fetch('http://localhost:8000/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: values.email,
+                        password: values.password
+                    })
+                });
+                console.log(response);
 
-                navigate('/books')
+                if (response.ok) {
+                    navigate('/welcome')
+                } else {
+                    alert(response.statusText);
+                }
 
             } catch (error: any) {
                 console.log(error)
@@ -87,16 +102,7 @@ const Login: FC<Props> = () => {
                             <ButtonLoginContainer>
                                 <ButtonLogin type="submit" >Log in</ButtonLogin>
                             </ButtonLoginContainer>
-                            <ErrorFirebaseContainer>{firebaseErrorMessage && (
-                                <ErrorFirebaseText>
-                                    {firebaseErrorMessage === 'auth/user-not-found' ? 'User or password is incorrect' :
-                                        firebaseErrorMessage === 'auth/wrong-password' ? 'User or password is incorrect' :
-                                            'Error de inicio de sesión, inténtalo de nuevo.'}
-                                </ErrorFirebaseText>
-                            )}</ErrorFirebaseContainer>
-
                         </Form>
-
                     </Formik>
                 </MainFormContainer>
             </LoginBackImg>
