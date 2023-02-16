@@ -12,7 +12,7 @@ justify-content: center;
 
 `
 
-export const ApodContainer = styled.div`
+export const ApodButtonsLink = styled.div`
 
 align-items: center;
 background-color: ${({ theme }) => theme.colors.primary};
@@ -33,5 +33,15 @@ export const ApodButton = styled.button`
     color: ${({ theme }) => theme.colors.primary};
     font-family: ${({ theme }) => theme.fonts.primary};
 
+
+`
+
+
+export const ApodContainer = styled.div`
+
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+margin-top: 1rem;
 
 `

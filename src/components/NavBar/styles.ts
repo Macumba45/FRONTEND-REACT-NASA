@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Nav = styled.nav`
 
-    background-color: #fc3d21;
+    background-color: #0b3d91;
     height: 50px;
     display: flex;
     align-items: center;
@@ -27,7 +27,7 @@ export const ProfileLink = styled.button`
 
     margin-right: 0.8rem;
     font-weight: 400;
-    color: black;
+    color: white;
     background: none;
     border: none;
     text-decoration: none;
@@ -64,7 +64,7 @@ export const ButtonBack = styled.button`
 
     border: none;
     background-color: white;
-    color: black;
+    color: white;
     font-weight: 300;
     font-family: ${({ theme }) => theme.fonts.primary};
     position: absolute;

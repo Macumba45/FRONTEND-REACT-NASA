@@ -5,7 +5,6 @@ import NavBar from '../../components/NavBar';
 import { useNavigate } from 'react-router-dom';
 import { Field, Formik } from 'formik';
 import { validationSchema, initialValues } from './constants';
-import { setAuthenticatedToken } from '../../services/storage';
 
 
 

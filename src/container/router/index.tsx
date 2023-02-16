@@ -21,8 +21,8 @@ const Router: FC = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signUp" element={<SignUp />} />
                 <Route path="/welcome" element={<Welcome />} />
-                <Route path="/Apod" element={<Apod />} />
-                <Route path="/Rover" element={<Rover />} />
+                <Route path="/apod" element={<Apod />} />
+                <Route path="/rover" element={<Rover />} />
             </Routes>
         </BrowserRouter>
 

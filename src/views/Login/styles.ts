@@ -5,8 +5,8 @@ import { Form as defaultForm } from "formik"
 
 
 export const LoginBackImg = styled.div`
-background: rgb(252,61,33);
-background: linear-gradient(180deg, rgba(252,61,33,1) 6%, rgba(11,61,145,1) 61%);
+background: rgb(11,61,145);
+background: linear-gradient(180deg, rgba(11,61,145,1) 6%, rgba(252,61,33,1) 99%);
 background-attachment: fixed;
 background-position: center;
 background-size: cover;
