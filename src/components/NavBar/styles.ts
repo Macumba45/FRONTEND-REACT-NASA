@@ -64,7 +64,7 @@ export const ButtonBack = styled.button`
 
     border: none;
     background-color: white;
-    color: white;
+    color: black;
     font-weight: 300;
     font-family: ${({ theme }) => theme.fonts.primary};
     position: absolute;

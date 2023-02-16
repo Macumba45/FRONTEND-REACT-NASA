@@ -7,6 +7,7 @@ export const MainApodContainer = styled.div`
 align-items: center;
 display: flex;
 justify-content: center;
+margin-top: 8rem;
 
 
 
@@ -17,10 +18,12 @@ export const ApodButtonsLink = styled.div`
 align-items: center;
 background-color: ${({ theme }) => theme.colors.primary};
 display: flex;
-height:2rem;
+height:4rem;
 justify-content: center;
 margin-top: 3rem;
 width: 100%;
+top: 0;
+position: fixed;
 
 
 

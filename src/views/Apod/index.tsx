@@ -53,17 +53,6 @@ const Apod: FC = () => {
 
     }
 
-    // console.log(apodData);
-
-    apodData.map(apod => console.log(apod));
-
-
-
-
-
-
-
-
     return (
 
         <>

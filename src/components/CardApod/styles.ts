@@ -10,7 +10,7 @@ margin: 10px;
 height: 900px;
 width: 500px;
 border-radius: 20px;
-background-color: antiquewhite;
+background-color: white;
 
 
 `
