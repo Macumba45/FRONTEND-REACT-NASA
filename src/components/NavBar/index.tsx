@@ -7,11 +7,12 @@ const LogoutIcon = require("./assets/icons8-logout-rounded-96.png")
 const RegisterIcon = require("./assets/icons8-join-64.png")
 
 const NavBar: FC<Props> = () => {
+
     const navigate = useNavigate();
     const location = useLocation();
 
     const isLoginOrSignUp = location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/";
-    const showBackButton = !isLoginOrSignUp;
+    const showBackButton = !isLoginOrSignUp && location.pathname !== "/welcome";
 
     const profile = isLoginOrSignUp ? "Login" : "Profile";
     const logout = isLoginOrSignUp ? "Register" : "Logout";

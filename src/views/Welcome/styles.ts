@@ -15,12 +15,12 @@ justify-content: center;
 export const WelcomeContainer = styled.div`
 
 align-items: center;
-background-color: ${({ theme }) => theme.colors.primary};
+/* background-color: ${({ theme }) => theme.colors.primary}; */
 display: flex;
-height: 30vh;
+height: 300px;
 justify-content: center;
 margin-top: 20rem;
-width: 30vw;
+width: 300px;
 border-radius: 10px;
 
 
@@ -29,10 +29,14 @@ border-radius: 10px;
 export const WelcomeLink = styled(Link)`
 
     text-decoration: none;
+    color: ${({ theme }) => theme.colors.light};;
     margin-right: 1rem;
     text-align: center;
-    color: ${({ theme }) => theme.colors.light};
     font-family: ${({ theme }) => theme.fonts.primary};
+    background-color:#0b3d91;
+    padding: 50px;
+    border-radius: 10px;
+
 
 
 `

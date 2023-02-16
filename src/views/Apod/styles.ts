@@ -26,7 +26,6 @@ top: 0;
 position: fixed;
 
 
-
 `
 
 export const ApodButton = styled.button`

@@ -60,7 +60,7 @@ const Apod: FC = () => {
             <MainApodContainer>
                 <ApodButtonsLink>
                     <ApodButton onClick={SyncApiApods} >Sync Apod</ApodButton>
-                    <ApodButton onClick={PrintApods} >Print Apod From BBDD</ApodButton>
+                    <ApodButton onClick={PrintApods}>Print Apod From BBDD</ApodButton>
                 </ApodButtonsLink>
             </MainApodContainer>
             <ApodContainer>
