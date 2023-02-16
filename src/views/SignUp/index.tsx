@@ -29,9 +29,10 @@ const SignUp: FC<Props> = () => {
                         password: values.password
                     })
                 });
-                console.log(response);
 
                 if (response.ok) {
+                    const data = await response.json();
+                    window.localStorage.setItem('token', data);
                     navigate('/welcome')
                 } else {
                     alert(response.statusText);
