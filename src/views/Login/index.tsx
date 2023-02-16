@@ -16,35 +16,34 @@ const Login: FC<Props> = () => {
     const [password, setPassword] = useState('');
 
 
-    const handleSubmit = useCallback(
-        async (values: any) => {
+    const handleSubmit = useCallback(async (values: any) => {
 
-            try {
-                const response = await fetch('http://localhost:8000/auth/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        email: values.email,
-                        password: values.password
-                    })
-                });
+        try {
+            const response = await fetch('http://localhost:8000/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: values.email,
+                    password: values.password
+                })
+            });
 
-                if (response.ok) {
-                    const data = await response.json();
-                    window.localStorage.setItem('token', data);
-                    navigate('/welcome')
-                } else {
-                    alert(response.statusText);
-                }
-
-            } catch (error: any) {
-                console.log(error)
-
+            if (response.ok) {
+                const data = await response.json();
+                window.localStorage.setItem('token', data);
+                navigate('/welcome')
+            } else {
+                alert(response.statusText);
             }
 
-        }, [navigate]
+        } catch (error: any) {
+            console.log(error)
+
+        }
+
+    }, [navigate]
     );
 
 

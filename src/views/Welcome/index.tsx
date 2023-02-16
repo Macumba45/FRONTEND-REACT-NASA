@@ -1,6 +1,6 @@
 import { FC } from "react";
 import NavBar from "../../components/NavBar";
-import { MainSyncApodContainer, SyncApodButton, SyncApodContainer } from "./styles";
+import { MainWelcomeContainer, WelcomeLink, WelcomeContainer } from "./styles";
 import { Props } from "./type";
 
 const Welcome: FC<Props> = () => {
@@ -11,11 +11,12 @@ const Welcome: FC<Props> = () => {
 
         <>
             <NavBar />
-            <MainSyncApodContainer>
-                <SyncApodContainer>
-                    <SyncApodButton>Sync Apods</SyncApodButton>
-                </SyncApodContainer>
-            </MainSyncApodContainer>
+            <MainWelcomeContainer>
+                <WelcomeContainer>
+                    <WelcomeLink to="/Apod">Go to Apods</WelcomeLink>
+                    <WelcomeLink to="/Rover">Go to Rovers</WelcomeLink>
+                </WelcomeContainer>
+            </MainWelcomeContainer>
         </>
 
     )
