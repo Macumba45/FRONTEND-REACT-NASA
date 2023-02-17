@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 
-
-
-
-
 export const Content = styled.div`
 align-items: center;
 display: flex;
@@ -19,6 +15,11 @@ background-color: ${({ theme }) => theme.colors.primary};
 
 `
 
+export const ContentButtons = styled.div`
+
+display: flex;
+
+`
 
 export const DeteleApod = styled.button`
 
@@ -31,6 +32,7 @@ export const DeteleApod = styled.button`
    border: none;
    border-radius: 10px;
    margin-bottom: 1rem;
+   margin-right: 1rem;
 
 `
 

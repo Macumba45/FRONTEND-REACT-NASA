@@ -4,11 +4,11 @@ import Title from "./Title";
 import Date from "./Date";
 import { Props } from "./type";
 import Url from "./Url";
-import { Content, DeteleApod } from "./styles";
+import { Content, ContentButtons, DeteleApod } from "./styles";
 import { getAuthenticatedToken } from "../../services/storage";
 import Apod from "../../views/Apod";
 
-const CardApod: FC<Props> = ({ id, title, explanation, date, url }) => {
+const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
 
 
     const printApods = async () => {
@@ -37,6 +37,8 @@ const CardApod: FC<Props> = ({ id, title, explanation, date, url }) => {
             },
         });
 
+        onRemove(id);
+
     }
 
 
@@ -49,8 +51,10 @@ const CardApod: FC<Props> = ({ id, title, explanation, date, url }) => {
             />
             <Date date={date}
             />
-            <DeteleApod type="button" onClick={() => { deleteApod(id); printApods() }}>Delete</DeteleApod>
-            <DeteleApod type="button" onClick={() => { deleteApod(id); printApods() }}>Delete</DeteleApod>
+            <ContentButtons>
+                <DeteleApod type="button" onClick={() => { deleteApod(id); printApods() }}>Delete</DeteleApod>
+                <DeteleApod type="button" onClick={() => { }}>Add to Fav</DeteleApod>
+            </ContentButtons>
         </Content>
 
 

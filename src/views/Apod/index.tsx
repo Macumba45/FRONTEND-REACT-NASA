@@ -61,6 +61,12 @@ const Apod: FC = () => {
 
     }
 
+    const onRemove = useCallback((id: number) => {
+
+        setApodData((prev) => prev.filter((apod) => apod.id !== id))
+
+    }, [])
+
 
     return (
 
@@ -85,10 +91,10 @@ const Apod: FC = () => {
                         <CardApod
                             key={apod.id}
                             title={apod.title}
-                            // explanation={apod.explanation}
                             date={apod.date}
                             url={apod.url}
-                            id={apod.id} />
+                            id={apod.id}
+                            onRemove={onRemove} />
                     )
                 })}
 

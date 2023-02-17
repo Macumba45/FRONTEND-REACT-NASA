@@ -3,8 +3,8 @@ export type Props = {
     id: number
     title: string
     date: string
-    explanation?: string
     url: string
+    onRemove: (id: number) => void
 
 
 }
