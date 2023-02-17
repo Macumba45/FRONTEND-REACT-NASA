@@ -5,6 +5,7 @@ import NavBar from '../../components/NavBar';
 import { useNavigate } from 'react-router-dom';
 import { Field, Formik } from 'formik';
 import { validationSchema, initialValues } from './constants';
+import { setAuthenticatedToken } from '../../services/storage';
 
 
 
@@ -31,7 +32,7 @@ const Login: FC<Props> = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                window.localStorage.setItem('token', data);
+                setAuthenticatedToken(data)
                 navigate('/welcome')
             } else {
                 alert(response.statusText);

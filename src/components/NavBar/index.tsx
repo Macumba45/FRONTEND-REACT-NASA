@@ -11,7 +11,7 @@ const NavBar: FC<Props> = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const isLoginOrSignUp = location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/";
+    const isLoginOrSignUp = location.pathname === "/login" || location.pathname === "/signUp" || location.pathname === "/";
     const showBackButton = !isLoginOrSignUp && location.pathname !== "/welcome";
 
     const profile = isLoginOrSignUp ? "Login" : "Profile";
@@ -23,7 +23,7 @@ const NavBar: FC<Props> = () => {
     const handleLogout = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         window.localStorage.clear()
-        navigate('/')
+        navigate('/login')
     }, [navigate])
 
     const handleBackButtonClick = useCallback(() => {
