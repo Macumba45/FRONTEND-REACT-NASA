@@ -8,9 +8,6 @@ import SignUp from "../../views/SignUp"
 import Welcome from "../../views/Welcome"
 
 
-
-
-
 const Router: FC = () => {
 
 
