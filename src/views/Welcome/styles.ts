@@ -33,7 +33,7 @@ export const WelcomeLink = styled(Link)`
     margin-right: 1rem;
     text-align: center;
     font-family: ${({ theme }) => theme.fonts.primary};
-    background-color:#0b3d91;
+    background-color: ${({ theme }) => theme.colors.primary};
     padding: 50px;
     border-radius: 10px;
 

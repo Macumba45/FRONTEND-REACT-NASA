@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useEffect, useState } from "react"
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom"
 import { getAuthenticatedToken } from "../../services/storage"
 import Apod from "../../views/Apod"
@@ -12,6 +12,7 @@ import Welcome from "../../views/Welcome"
 
 
 const Router: FC = () => {
+
 
     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
 
@@ -31,15 +32,13 @@ const Router: FC = () => {
 
         if (token) {
             if (location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/") {
-                return <Navigate to="/login" replace state={{ from: location }} />;
+                return <Navigate to="/welcome" replace state={{ from: location }} />;
             }
             return children;
         }
 
         return children;
     };
-
-
 
 
     return (
