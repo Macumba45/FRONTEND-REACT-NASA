@@ -21,6 +21,7 @@ export const GoToImg = styled(Link)`
 export const UrlImg = styled.img`
 
 width: 200px;
+border-radius: 20px;
 
 
 

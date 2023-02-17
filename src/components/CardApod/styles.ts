@@ -11,10 +11,10 @@ display: flex;
 flex-direction: column;
 margin-top: 2rem;
 margin: 10px;
-height: 550px;
+height: 600px;
 width: 300px;
 border-radius: 20px;
-background-color: ${({ theme }) => theme.colors.tertiary};
+background-color: ${({ theme }) => theme.colors.primary};
 
 
 `
@@ -22,11 +22,9 @@ background-color: ${({ theme }) => theme.colors.tertiary};
 
 export const DeteleApod = styled.button`
 
-
-  
-    background-color: black;
+    background-color: white;
     background-size: cover;
-    color: white;
+    color: black;
     cursor: pointer;
     height: 30px;
     width: 5rem;

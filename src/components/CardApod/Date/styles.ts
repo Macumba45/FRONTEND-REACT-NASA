@@ -7,6 +7,7 @@ margin-top: 1rem;
 height: 100px;
 display: flex;
 align-items: center;
+color: white
 
 `
 

@@ -43,17 +43,14 @@ const CardApod: FC<Props> = ({ id, title, explanation, date, url }) => {
     return (
 
         <Content>
-            {/* <DeteleApod onClick={DeleteApod} /> */}
             <Title title={title}
             />
-            {/* <Explanation explanation={explanation}
-            /> */}
             <Url url={url}
             />
             <Date date={date}
             />
             <DeteleApod type="button" onClick={() => { deleteApod(id); printApods() }}>Delete</DeteleApod>
-
+            <DeteleApod type="button" onClick={() => { deleteApod(id); printApods() }}>Delete</DeteleApod>
         </Content>
 
 
