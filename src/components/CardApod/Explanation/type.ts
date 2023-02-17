@@ -1,6 +1,6 @@
 export type Props = {
 
-    explanation: string
+    explanation?: string
 
 
 

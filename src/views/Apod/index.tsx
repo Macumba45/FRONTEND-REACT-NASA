@@ -1,19 +1,24 @@
 import { FC, useCallback, useState } from "react";
 import CardApod from "../../components/CardApod";
 import NavBar from "../../components/NavBar";
-import { MainApodContainer, ApodButton, ApodButtonsLink, ApodContainer } from "./styles";
-import { Props } from "./type";
+import { getAuthenticatedToken } from "../../services/storage";
+import { MainApodContainer, ApodButton, ApodButtonsLink, ApodContainer, BackgorundImg, SyncApiApod, SyncApiApodContainer } from "./styles";
 
 const Apod: FC = () => {
 
     const [apodData, setApodData] = useState<any[]>([]); // inicializar la variable apodData como array vacío
+    const [isLoading, setIsLoading] = useState(false);
 
 
-    const SyncApiApods = async () => {
+
+    const syncApiApods = async () => {
+
+        setIsLoading(true);
+
 
         try {
 
-            const token = localStorage.getItem('token'); // Obtener el token de localStorage
+            const token = getAuthenticatedToken(); // Obtener el token de localStorage
             await fetch('http://localhost:8000/sync-api/', {
 
                 method: 'GET',
@@ -28,13 +33,16 @@ const Apod: FC = () => {
 
         }
 
+        setIsLoading(false);
+
+
     }
 
-    const PrintApods = async () => {
+    const printApods = async () => {
 
         try {
 
-            const token = localStorage.getItem('token'); // Obtener el token de localStorage
+            const token = getAuthenticatedToken(); // Obtener el token de localStorage
             const response = await fetch('http://localhost:8000/apods/', {
                 method: 'GET',
                 headers: {
@@ -53,26 +61,34 @@ const Apod: FC = () => {
 
     }
 
+
     return (
 
         <>
             <NavBar />
+
             <MainApodContainer>
                 <ApodButtonsLink>
-                    <ApodButton onClick={SyncApiApods} >Sync Apod</ApodButton>
-                    <ApodButton onClick={PrintApods}>Print Apod From BBDD</ApodButton>
+                    <ApodButton onClick={syncApiApods} >Sync Apod</ApodButton>
+                    <ApodButton onClick={printApods}>Print Apod From DB</ApodButton>
+
                 </ApodButtonsLink>
             </MainApodContainer>
+            <SyncApiApodContainer>
+                {isLoading && <SyncApiApod>Synchronizing...</SyncApiApod>}
+            </SyncApiApodContainer>
             <ApodContainer>
                 {apodData.map((apod) => {
+
                     return (
+
                         <CardApod
-                            key={apod.title}
+                            key={apod.id}
                             title={apod.title}
-                            explanation={apod.explanation}
+                            // explanation={apod.explanation}
                             date={apod.date}
                             url={apod.url}
-                        />
+                            id={apod.id} />
                     )
                 })}
 
@@ -81,8 +97,6 @@ const Apod: FC = () => {
         </>
 
     )
-
-
 }
 
 export default Apod;

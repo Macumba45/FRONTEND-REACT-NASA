@@ -6,7 +6,7 @@ export const TitleContainer = styled.div`
 
 
 text-align: center;
-margin: 3rem 1rem 3rem 1rem;
+margin: 3rem 1rem 1rem 1rem;
 
 
 

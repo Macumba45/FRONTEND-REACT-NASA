@@ -1,16 +1,38 @@
 import styled from "styled-components";
 
+
+
+
+
+
 export const Content = styled.div`
 align-items: center;
-border: 2px solid black;
 display: flex;
 flex-direction: column;
 margin-top: 2rem;
 margin: 10px;
-height: 900px;
-width: 500px;
+height: 550px;
+width: 300px;
 border-radius: 20px;
-background-color: white;
+background-color: ${({ theme }) => theme.colors.tertiary};
 
 
 `
+
+
+export const DeteleApod = styled.button`
+
+
+  
+    background-color: black;
+    background-size: cover;
+    color: white;
+    cursor: pointer;
+    height: 30px;
+    width: 5rem;
+   border: none;
+   border-radius: 10px;
+   margin-bottom: 1rem;
+
+`
+

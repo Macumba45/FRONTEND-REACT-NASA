@@ -19,7 +19,7 @@ align-items: center;
 display: flex;
 height: 300px;
 justify-content: center;
-margin-top: 20rem;
+margin-top: 13rem;
 width: 300px;
 border-radius: 10px;
 

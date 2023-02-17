@@ -2,12 +2,26 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
+export const BackgorundImg = styled.div`
+
+background: rgb(11,61,145);
+background: linear-gradient(180deg, rgba(11,61,145,1) 6%, rgba(252,61,33,1) 99%);
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+object-fit: cover;
+  width:100%;
+  height:100%;
+
+`
+
+
 export const MainApodContainer = styled.div`
 
 align-items: center;
 display: flex;
 justify-content: center;
-margin-top: 8rem;
+margin-top: 6rem;
 
 
 
@@ -34,6 +48,11 @@ export const ApodButton = styled.button`
     text-align: center;
     color: ${({ theme }) => theme.colors.primary};
     font-family: ${({ theme }) => theme.fonts.primary};
+    background-color: white;
+    border:none;
+    border-radius: 10px;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
 
 
 `
@@ -45,5 +64,24 @@ display: flex;
 justify-content: center;
 flex-wrap: wrap;
 margin-top: 1rem;
+/* background-color: antiquewhite; */
 
 `
+export const SyncApiApodContainer = styled.span`
+  display: flex;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.primary};
+`
+
+
+export const SyncApiApod = styled.span`
+    font-family: ${({ theme }) => theme.fonts.primary};
+    color: green;
+
+`
+
+
+
+
