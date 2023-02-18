@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -22,8 +21,6 @@ align-items: center;
 display: flex;
 justify-content: center;
 margin-top: 6rem;
-
-
 
 `
 
@@ -53,10 +50,9 @@ export const ApodButton = styled.button`
     border-radius: 10px;
     padding: 0.6rem;
     margin-bottom: 1rem;
-
+    cursor: pointer;
 
 `
-
 
 export const ApodContainer = styled.div`
 
@@ -73,6 +69,7 @@ export const SyncApiApodContainer = styled.span`
   height: 3rem;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.primary};
+  
 `
 
 

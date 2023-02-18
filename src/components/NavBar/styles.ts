@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -24,6 +25,24 @@ export const Nav = styled.nav`
 `
 
 export const ProfileLink = styled.button`
+
+    margin-right: 0.8rem;
+    font-weight: 400;
+    color: white;
+    background: none;
+    border: none;
+    text-decoration: none;
+    font-family: ${({ theme }) => theme.fonts.primary};
+    font-size: 0.9rem;
+    cursor: pointer;
+
+    &:hover {
+        font-weight: 600;
+    }
+
+`
+
+export const ProfileLinkTo = styled(Link)`
 
     margin-right: 0.8rem;
     font-weight: 400;

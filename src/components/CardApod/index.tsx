@@ -1,4 +1,4 @@
-import { FC, useCallback } from "react";
+import { FC, useCallback, useState } from "react";
 import Title from "./Title";
 import Date from "./Date";
 import { Props } from "./type";
@@ -9,6 +9,8 @@ import { getAuthenticatedToken } from "../../services/storage";
 
 const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
 
+
+    const [isFavorited, setIsFavorited] = useState(false);
 
     const deleteApod = useCallback(async (id: number) => {
         const token = getAuthenticatedToken();             // Obtener el token de localStorage
@@ -23,6 +25,29 @@ const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
     }, [onRemove]);
 
 
+    const addFavApod = useCallback(async (id: number) => {
+
+        const token = getAuthenticatedToken();
+        const response = await fetch(`http://localhost:8000/users/addFavoritesApod/${id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` // Agregar el token al header 'Authorization'
+            },
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+            if (data.isAdded) {
+                alert(data);
+            } else {
+                alert(data);
+            }
+        }
+
+    }, [])
+
 
     return (
 
@@ -35,11 +60,9 @@ const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
             />
             <ContentButtons>
                 <DeteleApod type="button" onClick={() => { deleteApod(id) }}>Delete</DeteleApod>
-                <DeteleApod type="button" onClick={() => { }}>Add to Fav</DeteleApod>
+                <DeteleApod type="button" onClick={() => { addFavApod(id) }}>Add to Fav</DeteleApod>
             </ContentButtons>
         </Content>
-
-
     )
 }
 

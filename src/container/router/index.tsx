@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-route
 import { getAuthenticatedToken } from "../../services/storage"
 import Apod from "../../views/Apod"
 import Login from "../../views/Login"
+import Profile from "../../views/Profile"
 import Rover from "../../views/Rover"
 import SignUp from "../../views/SignUp"
 import Welcome from "../../views/Welcome"
@@ -48,6 +49,7 @@ const Router: FC = () => {
                 <Route path="/welcome" element={<ProtectedRoutes><Welcome /></ProtectedRoutes>} />
                 <Route path="/apod" element={<ProtectedRoutes><Apod /></ProtectedRoutes>} />
                 <Route path="/rover" element={<ProtectedRoutes><Rover /></ProtectedRoutes>} />
+                <Route path="/profile" element={<ProtectedRoutes><Profile /></ProtectedRoutes>} />
             </Routes>
         </BrowserRouter>
 

@@ -1,6 +1,6 @@
 import { FC, useCallback } from "react";
 import { Props } from "./type"
-import { Nav, ProfileIco, ProfileLink, ButtonBack, RegisterIco, Container } from "./styles";
+import { Nav, ProfileIco, ProfileLink, ButtonBack, RegisterIco, Container, ProfileLinkTo } from "./styles";
 import { useLocation, useNavigate } from 'react-router-dom';
 const LoginIcon = require("./assets/icono.png")
 const LogoutIcon = require("./assets/icons8-logout-rounded-96.png")
@@ -37,7 +37,7 @@ const NavBar: FC<Props> = () => {
                     <ButtonBack onClick={handleBackButtonClick}>Back</ButtonBack>
                 )}
                 <ProfileIco src={profileImage} />
-                <ProfileLink>{profile}</ProfileLink>
+                <ProfileLinkTo to="/profile">{profile}</ProfileLinkTo>
                 <RegisterIco src={logoutImage} />
                 <ProfileLink onClick={handleLogout}>{logout}</ProfileLink>
             </Nav>
