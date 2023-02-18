@@ -41,9 +41,6 @@ const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
         if (response.ok) {
             const data = await response.json();
             setIsFavorited(data.isAdded); // Aquí establecemos el estado a verdadero
-
-            // setIsFavorited(false) // actualizar el estado del componente para indicar que no está en favoritos
-
         }
 
     }, [])

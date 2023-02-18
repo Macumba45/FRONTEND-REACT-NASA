@@ -28,6 +28,8 @@ const Apod: FC = () => {
                 },
             })
 
+            printApods()
+
         } catch (error) {
             console.log(error)
 
@@ -76,7 +78,7 @@ const Apod: FC = () => {
             <MainApodContainer>
                 <ApodButtonsLink>
                     <ApodButton onClick={syncApiApods} >Sync Apod</ApodButton>
-                    <ApodButton onClick={printApods}>Print Apod From DB</ApodButton>
+                    {/* <ApodButton onClick={printApods}>Print Apod From DB</ApodButton> */}
 
                 </ApodButtonsLink>
             </MainApodContainer>
