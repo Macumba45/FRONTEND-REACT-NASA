@@ -1,14 +1,16 @@
-import { FC, useCallback, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import Title from "./Title";
 import Date from "./Date";
 import { Props } from "./type";
 import Url from "./Url";
-import { Content, ContentButtons, DeteleApod } from "./styles";
+import { Content, ContentButtons, DeteleApod, FavContainer, FavImg } from "./styles";
 import { getAuthenticatedToken } from "../../services/storage";
+import hearth from "./assets/icons8-favorite-96.png"
+import hearthFilled from "./assets/icons8-favorite-96-filled.png"
+
 
 
 const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
-
 
     const [isFavorited, setIsFavorited] = useState(false);
 
@@ -38,16 +40,13 @@ const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log(data);
-            if (data.isAdded) {
-                alert(data);
-            } else {
-                alert(data);
-            }
+            setIsFavorited(data.isAdded); // Aquí establecemos el estado a verdadero
+
+            // setIsFavorited(false) // actualizar el estado del componente para indicar que no está en favoritos
+
         }
 
     }, [])
-
 
     return (
 
@@ -60,7 +59,9 @@ const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
             />
             <ContentButtons>
                 <DeteleApod type="button" onClick={() => { deleteApod(id) }}>Delete</DeteleApod>
-                <DeteleApod type="button" onClick={() => { addFavApod(id) }}>Add to Fav</DeteleApod>
+                <FavContainer onClick={() => { addFavApod(id) }}>
+                    <FavImg src={isFavorited ? hearthFilled : hearth} />
+                </FavContainer>
             </ContentButtons>
         </Content>
     )

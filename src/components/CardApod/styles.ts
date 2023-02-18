@@ -18,6 +18,22 @@ background-color: ${({ theme }) => theme.colors.primary};
 export const ContentButtons = styled.div`
 
 display: flex;
+align-items: center;
+margin-bottom: 1rem;
+
+`
+
+export const FavContainer = styled.div`
+align-items: center;
+
+cursor: pointer;
+
+`
+
+export const FavImg = styled.img`
+
+width: 40px;
+margin-left: 1rem;
 
 `
 
@@ -31,8 +47,8 @@ export const DeteleApod = styled.button`
     width: 5rem;
    border: none;
    border-radius: 10px;
-   margin-bottom: 1rem;
-   margin-right: 1rem;
+   /* margin-bottom: 1rem;
+   margin-right: 1rem; */
 
 `
 

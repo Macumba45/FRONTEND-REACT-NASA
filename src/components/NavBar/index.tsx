@@ -20,6 +20,9 @@ const NavBar: FC<Props> = () => {
     const profileImage = isLoginOrSignUp ? LoginIcon : LoginIcon;
     const logoutImage = isLoginOrSignUp ? RegisterIcon : LogoutIcon;
 
+    const showProfileButton = location.pathname !== "/profile";
+
+
     const handleLogout = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         window.localStorage.clear()
@@ -36,8 +39,12 @@ const NavBar: FC<Props> = () => {
                 {showBackButton && (
                     <ButtonBack onClick={handleBackButtonClick}>Back</ButtonBack>
                 )}
-                <ProfileIco src={profileImage} />
-                <ProfileLinkTo to="/profile">{profile}</ProfileLinkTo>
+                {showProfileButton && (
+                    <>
+                        <ProfileIco src={profileImage} />
+                        <ProfileLinkTo to="/profile">{profile}</ProfileLinkTo>
+                    </>
+                )}
                 <RegisterIco src={logoutImage} />
                 <ProfileLink onClick={handleLogout}>{logout}</ProfileLink>
             </Nav>
