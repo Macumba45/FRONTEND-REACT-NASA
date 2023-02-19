@@ -9,8 +9,6 @@ const Apod: FC = () => {
     const [apodData, setApodData] = useState<any[]>([]); // inicializar la variable apodData como array vacío
     const [isLoading, setIsLoading] = useState(false);
 
-
-
     const syncApiApods = async () => {
 
         setIsLoading(true);
@@ -31,12 +29,8 @@ const Apod: FC = () => {
 
         } catch (error) {
             console.log(error)
-
         }
-
         setIsLoading(false);
-
-
     }
 
     const printApods = async () => {
@@ -53,16 +47,17 @@ const Apod: FC = () => {
             })
             const data = await response.json(); // obtener los datos de la respuesta
             setApodData(data); // guardar los datos en la variable apodData
+            return data;
+
 
         } catch (error) {
-
             console.log(error)
-
         }
-
     }
 
-
+    useEffect(() => {
+        printApods().then(data => setApodData(data));
+    }, [setApodData]);
 
 
     const onRemove = useCallback((id: number) => {
