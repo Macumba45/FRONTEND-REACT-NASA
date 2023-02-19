@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, memo, useCallback, useEffect, useState } from "react";
 import Title from "../../components/CardApod/Title";
 import Url from "../../components/CardApod/Url";
 import Date from "../../components/CardApod/Date";
@@ -89,4 +89,4 @@ const Profile: FC = () => {
 }
 
 
-export default Profile;
+export default memo(Profile);

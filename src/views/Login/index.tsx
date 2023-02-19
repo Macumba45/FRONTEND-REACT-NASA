@@ -1,5 +1,5 @@
 import { MainFormContainer, LoginTitle, Form, EmailContainer, PasswordContainer, LabelContainer, Label, Input, LinkSignupContainer, LinkSignupText, ButtonLoginContainer, ButtonLogin, LoginBackImg, Error } from './styles'
-import { FC, useCallback, useState } from "react";
+import { FC, memo, useCallback, useState } from "react";
 import { Props } from "./type"
 import NavBar from '../../components/NavBar';
 import { useNavigate } from 'react-router-dom';
@@ -111,7 +111,7 @@ const Login: FC<Props> = () => {
     )
 }
 
-export default Login;
+export default memo(Login);
 
 
 

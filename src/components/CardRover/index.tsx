@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Content } from "./styles";
 import Date from "./Date";
 import { Props } from "./type"
@@ -27,4 +27,4 @@ const CardRover: FC<Props> = ({ id, nasaId, img_src, earth_date, camera }) => {
 }
 
 
-export default CardRover;
+export default memo(CardRover);

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { DateContainer, DateText } from "./styles";
 import { Props } from "./type";
 
@@ -13,4 +13,4 @@ const Date: FC<Props> = ({ earth_date }) => {
 }
 
 
-export default Date;
+export default memo(Date);

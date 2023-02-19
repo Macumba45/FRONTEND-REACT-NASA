@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import NavBar from "../../components/NavBar";
 import { MainWelcomeContainer, WelcomeLink, WelcomeContainer, RoverPicture, RoverLink, ApodPicture, ApodLink } from "./styles";
 import { Props } from "./type";
@@ -30,4 +30,4 @@ const Welcome: FC<Props> = () => {
 
 }
 
-export default Welcome;
+export default memo(Welcome);

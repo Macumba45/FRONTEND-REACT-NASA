@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, memo, useEffect, useState } from "react";
 import CardRover from "../../components/CardRover";
 import NavBar from "../../components/NavBar";
 import { getAuthenticatedToken } from "../../services/storage";
@@ -24,7 +24,6 @@ const Rover: FC = () => {
                     'Authorization': `Bearer ${token}` // Agregar el token al header 'Authorization'
                 },
             })
-            console.log(response)
             PrintRover()
 
         } catch (error) {
@@ -49,7 +48,6 @@ const Rover: FC = () => {
             })
 
             const data = await response.json();
-            console.log(data)
             setRoverData(data)
             return data;
 
@@ -99,4 +97,4 @@ const Rover: FC = () => {
 
 }
 
-export default Rover;
+export default memo(Rover);

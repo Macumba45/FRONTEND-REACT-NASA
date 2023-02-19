@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { CameraContainer, CameraText } from "./styles";
 import { Props } from "./type";
 
@@ -12,4 +12,4 @@ const Camera: FC<Props> = ({ camera }) => {
     )
 }
 
-export default Camera;  
+export default memo(Camera);

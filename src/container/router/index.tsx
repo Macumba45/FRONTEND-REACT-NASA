@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, memo } from "react"
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom"
 import { getAuthenticatedToken } from "../../services/storage"
 import Apod from "../../views/Apod"
@@ -57,4 +57,4 @@ const Router: FC = () => {
 }
 
 
-export default Router
+export default memo(Router);

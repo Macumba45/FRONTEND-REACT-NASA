@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, memo, useCallback, useEffect, useState } from "react";
 import CardApod from "../../components/CardApod";
 import NavBar from "../../components/NavBar";
 import { getAuthenticatedToken } from "../../services/storage";
@@ -108,4 +108,4 @@ const Apod: FC = () => {
     )
 }
 
-export default Apod;
+export default memo(Apod);

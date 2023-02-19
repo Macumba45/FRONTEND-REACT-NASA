@@ -1,4 +1,4 @@
-import { FC, useCallback } from "react";
+import { FC, memo, useCallback } from "react";
 import { Props } from "./type"
 import { Nav, ProfileIco, ProfileLink, ButtonBack, RegisterIco, Container, ProfileLinkTo } from "./styles";
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -52,4 +52,4 @@ const NavBar: FC<Props> = () => {
     );
 };
 
-export default NavBar;
+export default memo(NavBar);

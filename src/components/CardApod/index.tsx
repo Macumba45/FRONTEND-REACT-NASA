@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, memo, useCallback, useEffect, useState } from "react";
 import Title from "./Title";
 import Date from "./Date";
 import { Props } from "./type";
@@ -88,4 +88,4 @@ const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
 }
 
 
-export default CardApod;
+export default memo(CardApod);

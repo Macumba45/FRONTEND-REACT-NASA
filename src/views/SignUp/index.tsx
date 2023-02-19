@@ -1,4 +1,4 @@
-import { FC, useCallback } from "react";
+import { FC, memo, useCallback } from "react";
 import { MainFormContainer, Form, SignUpTitle, EmailContainer, PasswordContainer, LabelContainer, Label, Input, ButtonSignUpContainer, LinkLoginContainer, LinkLoginText, ButtonSignUp, LoginBackImg, Error } from "./styles"
 import { Props } from "./type"
 import { useState } from "react";
@@ -114,6 +114,6 @@ const SignUp: FC<Props> = () => {
 
 }
 
-export default SignUp;
+export default memo(SignUp);
 
 

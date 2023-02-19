@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { ExplanationContainer, ExplanationText } from "./styles";
 import { Props } from "./type";
 
@@ -14,4 +14,4 @@ const Explanation: FC<Props> = ({ explanation }) => {
 }
 
 
-export default Explanation;
+export default memo(Explanation);

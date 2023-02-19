@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { TitleContainer, TitleH1 } from "./styles";
 import { Props } from "./type";
 
@@ -14,4 +14,4 @@ const Title: FC<Props> = ({ title }) => {
 }
 
 
-export default Title;
+export default memo(Title);

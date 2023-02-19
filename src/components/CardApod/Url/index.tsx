@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { GoToImg, UrlContainer, UrlImg } from "./styles";
 import { Props } from "./type";
 
@@ -14,4 +14,4 @@ const Url: FC<Props> = ({ url }) => {
 }
 
 
-export default Url;
+export default memo(Url);
