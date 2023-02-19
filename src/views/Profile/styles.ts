@@ -4,10 +4,13 @@ import styled from "styled-components";
 export const MainContainerProfile = styled.div`
 
 display: flex;
-justify-content: center;
-background-color:${({ theme }) => theme.colors.primary};
+align-items: center;
+background-color:${({ theme }) => theme.colors.light};
 height: 100vh;
 width: 100vw;
+flex-direction: column;
+margin-top: 5rem;   
+
 
 `
 
@@ -18,9 +21,9 @@ export const ContainerProfile = styled.div`
     align-items: center;
     width: 300px;
     height: 300px;
-    background-color: white;
+    background-color:${({ theme }) => theme.colors.primary};
     border-radius: 20px;
-    margin-top: 4rem;   
+    
 
 `
 
@@ -29,7 +32,9 @@ export const IdContainer = styled.p`
 font-family: ${({ theme }) => theme.fonts.primary};
 font-size: ${({ theme }) => theme.fontSizes.smallest};
 font-weight: ${({ theme }) => theme.fontWeights.bold};
-margin-bottom: 1rem;
+margin-top: 2rem;
+color: ${({ theme }) => theme.colors.light};
+
 
 `
 
@@ -39,7 +44,9 @@ font-family: ${({ theme }) => theme.fonts.primary};
 font-size: ${({ theme }) => theme.fontSizes.smallest};
 font-weight: ${({ theme }) => theme.fontWeights.bold};
 margin-bottom: 1rem;
-margin-top: 1rem;
+margin-top: 2rem;
+color: ${({ theme }) => theme.colors.light};
+
 
 `
 
@@ -50,6 +57,33 @@ font-size: ${({ theme }) => theme.fontSizes.smallest};
 font-weight: ${({ theme }) => theme.fontWeights.semiBold};
 margin-bottom: 1rem;
 margin-top: 1rem;
+
+
+`
+
+export const ApodFavContainer = styled.div`
+
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+margin-top: 5rem;
+
+    
+
+`
+
+
+export const Content = styled.div`
+align-items: center;
+color: ${({ theme }) => theme.colors.light};
+display: flex;
+flex-direction: column;
+margin-top: 2rem;
+margin: 10px;
+height: 500px;
+width: 300px;
+border-radius: 20px;
+background-color: ${({ theme }) => theme.colors.primary};
 
 
 `
