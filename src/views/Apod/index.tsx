@@ -3,10 +3,11 @@ import CardApod from "../../components/CardApod";
 import NavBar from "../../components/NavBar";
 import { getAuthenticatedToken } from "../../services/storage";
 import { MainApodContainer, ApodButton, ApodButtonsLink, ApodContainer, SyncApiApodContainer, SyncApiApodText } from "./styles";
+import { Props } from "./type";
 
 const Apod: FC = () => {
 
-    const [apodData, setApodData] = useState<any[]>([]); // inicializar la variable apodData como array vacío
+    const [apodData, setApodData] = useState<Props[]>([]); // inicializar la variable apodData como array vacío
     const [isLoading, setIsLoading] = useState(false);
 
     const syncApiApods = async () => {

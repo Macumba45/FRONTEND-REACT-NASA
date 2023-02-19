@@ -3,7 +3,7 @@ import { FC, memo, useCallback, useState } from "react";
 import { Props } from "./type"
 import NavBar from '../../components/NavBar';
 import { useNavigate } from 'react-router-dom';
-import { Field, Formik } from 'formik';
+import { Field, FieldProps, Formik } from 'formik';
 import { validationSchema, initialValues } from './constants';
 import { setAuthenticatedToken } from '../../services/storage';
 
@@ -16,7 +16,7 @@ const Login: FC<Props> = () => {
     const [password, setPassword] = useState('');
 
 
-    const handleSubmit = useCallback(async (values: any) => {
+    const handleSubmit = useCallback(async (values: Props) => {
 
         try {
             const response = await fetch('http://localhost:8000/auth/login', {
@@ -60,18 +60,18 @@ const Login: FC<Props> = () => {
                         <Form  >
                             <LoginTitle>SignIn</LoginTitle>
                             <Field name="email">
-                                {({ field, meta }: { field: any, meta: any }) => (
+                                {({ field, meta }: FieldProps) => (
                                     <EmailContainer>
                                         <LabelContainer>
                                             <Label>Email* </Label>
                                         </LabelContainer>
                                         <Input
                                             $hasError={!!meta?.error}
-                                            value={email}
+                                            // value={email}
                                             type="email"
                                             placeholder="Insert your email"
                                             autoComplete="email"
-                                            onChange={(e => setEmail(e.target.value))}
+                                            // onChange={(e => setEmail(e.target.value))}
                                             {...field}
                                         />
                                         {!!meta?.error && <Error>{meta.error}</Error>}

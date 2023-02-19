@@ -5,11 +5,13 @@ import Date from "../../components/CardApod/Date";
 import NavBar from "../../components/NavBar";
 import { getAuthenticatedToken } from "../../services/storage";
 import { ApodFavContainer, ContainerProfile, Content, EmailContainer, FavH1, IdContainer, MainContainerProfile } from "./styles";
+import { Props } from "./type";
+
 
 const Profile: FC = () => {
 
     const [userData, setUserData] = useState<{ id: string, email: string, name: string } | null>(null);
-    const [apodFavs, setApodFavs] = useState<any[]>([]);
+    const [apodFavs, setApodFavs] = useState<Props[]>([]);
 
 
     const userInfo = useCallback(async () => {

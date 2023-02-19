@@ -3,10 +3,11 @@ import CardRover from "../../components/CardRover";
 import NavBar from "../../components/NavBar";
 import { getAuthenticatedToken } from "../../services/storage";
 import { MainRoverContainer, RoverButton, RoverContainer, RoverContainerData, SyncApiRoverContainer, SyncApiRoverText } from "./styles";
+import { Props } from "./type";
 
 const Rover: FC = () => {
 
-    const [roverData, setRoverData] = useState<any[]>([]); // inicializar la variable apodData como array vacío
+    const [roverData, setRoverData] = useState<Props[]>([]); // inicializar la variable apodData como array vacío
     const [isLoading, setIsLoading] = useState(false);
 
     const SyncApiRover = async () => {
@@ -16,7 +17,7 @@ const Rover: FC = () => {
         try {
 
             const token = getAuthenticatedToken(); // Obtener el token de localStorage
-            const response = await fetch('http://localhost:8000/sync-apiRovers', {
+            await fetch('http://localhost:8000/sync-apiRovers', {
 
                 method: 'GET',
                 headers: {

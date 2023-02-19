@@ -17,7 +17,7 @@ const SignUp: FC<Props> = () => {
     const navigate = useNavigate();
 
     const handleSubmit = useCallback(
-        async (values: any) => {
+        async (values: Props) => {
             try {
                 const response = await fetch('http://localhost:8000/auth/signup', {
                     method: 'POST',

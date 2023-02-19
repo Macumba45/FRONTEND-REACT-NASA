@@ -10,7 +10,6 @@ align-items: center;
 display: flex;
 justify-content: center;
 
-
 `
 
 export const WelcomeContainer = styled.div`
@@ -25,7 +24,12 @@ width: 600px;
 border-radius: 10px;
 flex-direction: column;
 
+@media screen {
+    @media (min-height: 940px) {
+        margin-top: 10rem;
+  }
 
+}
 `
 
 export const WelcomeLink = styled(Link)`

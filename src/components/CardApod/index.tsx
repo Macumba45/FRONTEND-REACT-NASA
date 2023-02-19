@@ -57,7 +57,7 @@ const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
 
         if (response.ok) {
             const data = await response.json();
-            const apodFavorite = data.apodFavorites.find((item: any) => item.id === id);
+            const apodFavorite = data.apodFavorites.find((item: Props) => item.id === id);
             setIsFavorited(apodFavorite !== undefined);
         }
     }, [id])
