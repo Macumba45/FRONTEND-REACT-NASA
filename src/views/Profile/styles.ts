@@ -5,7 +5,7 @@ export const MainContainerProfile = styled.div`
 
 display: flex;
 align-items: center;
-background-color:${({ theme }) => theme.colors.light};
+background-color:white;
 height: 100vh;
 width: 100vw;
 flex-direction: column;
@@ -67,8 +67,6 @@ display: flex;
 justify-content: center;
 flex-wrap: wrap;
 margin-top: 5rem;
-
-    
 
 `
 

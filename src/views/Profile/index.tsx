@@ -41,17 +41,18 @@ const Profile: FC = () => {
 
         const data = await response.json();
         const apodFavs = data.apodFavorites;
-        console.log(apodFavs)
         return apodFavs
 
 
     }, [])
 
     useEffect(() => {
-        userInfo();
-        getApodFav().then((apodFavs) => {
+        const fetchData = async () => {
+            await userInfo();
+            const apodFavs = await getApodFav();
             setApodFavs(apodFavs);
-        });
+        };
+        fetchData();
     }, [userInfo, getApodFav]);
 
     return (
@@ -66,7 +67,8 @@ const Profile: FC = () => {
                 </ContainerProfile>
                 <ApodFavContainer>
                     {apodFavs.map((fav) => (
-                        <Content>
+                        <Content
+                            key={fav.title}>
                             <Title title={fav.title}
                             />
                             <Url url={fav.url}

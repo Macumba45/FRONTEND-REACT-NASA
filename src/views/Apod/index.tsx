@@ -56,7 +56,11 @@ const Apod: FC = () => {
     }
 
     useEffect(() => {
-        printApods().then(data => setApodData(data));
+        const printApodsAsync = async () => {
+            const data = await printApods();
+            setApodData(data);
+        };
+        printApodsAsync();
     }, [setApodData]);
 
 
