@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import CardApod from "../../components/CardApod";
 import NavBar from "../../components/NavBar";
+import { getAuthenticatedToken } from "../../services/storage";
 import { MainRoverContainer, RoverButton, RoverContainer, RoverContainerData } from "./styles";
 import { Props } from "./type";
 
@@ -13,7 +14,7 @@ const Rover: FC<Props> = () => {
 
         try {
 
-            const token = localStorage.getItem('token'); // Obtener el token de localStorage
+            const token = getAuthenticatedToken(); // Obtener el token de localStorage
             const response = await fetch('http://localhost:8000/sync-apiRovers', {
 
                 method: 'GET',
@@ -35,7 +36,7 @@ const Rover: FC<Props> = () => {
 
         try {
 
-            const token = localStorage.getItem('token'); // Obtener el token de localStorage
+            const token = getAuthenticatedToken(); // Obtener el token de localStorage
             const response = await fetch('http://localhost:8000/rovers/', {
                 method: 'GET',
                 headers: {
