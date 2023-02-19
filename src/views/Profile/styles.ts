@@ -14,6 +14,16 @@ margin-top: 5rem;
 
 `
 
+export const FavH1 = styled.h1`
+
+font-family: ${({ theme }) => theme.fonts.primary};
+font-size: ${({ theme }) => theme.fontSizes.small};
+font-weight: ${({ theme }) => theme.fontWeights.bold};
+margin-bottom: 2rem;
+margin-top: 2rem;
+
+`
+
 export const ContainerProfile = styled.div`
     display: flex;
     justify-content: center;;
@@ -66,7 +76,6 @@ export const ApodFavContainer = styled.div`
 display: flex;
 justify-content: center;
 flex-wrap: wrap;
-margin-top: 5rem;
 
 `
 
@@ -76,7 +85,6 @@ align-items: center;
 color: ${({ theme }) => theme.colors.light};
 display: flex;
 flex-direction: column;
-margin-top: 2rem;
 margin: 10px;
 height: 500px;
 width: 300px;

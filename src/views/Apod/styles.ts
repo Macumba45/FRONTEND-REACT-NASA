@@ -68,7 +68,8 @@ export const SyncApiApodContainer = styled.span`
   justify-content: center;
   height: 3rem;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: white;
+  margin-top: 2rem;
   
 `
 

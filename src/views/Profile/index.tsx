@@ -4,7 +4,7 @@ import Url from "../../components/CardApod/Url";
 import Date from "../../components/CardApod/Date";
 import NavBar from "../../components/NavBar";
 import { getAuthenticatedToken } from "../../services/storage";
-import { ApodFavContainer, ContainerProfile, Content, EmailContainer, IdContainer, MainContainerProfile } from "./styles";
+import { ApodFavContainer, ContainerProfile, Content, EmailContainer, FavH1, IdContainer, MainContainerProfile } from "./styles";
 
 const Profile: FC = () => {
 
@@ -65,6 +65,7 @@ const Profile: FC = () => {
                     <EmailContainer>Email: {userData?.email}</EmailContainer>
                     {userData?.name ? `Name: ${userData.name}` : null}
                 </ContainerProfile>
+                <FavH1>Favorite list &#128154;</FavH1>
                 <ApodFavContainer>
                     {apodFavs.map((fav) => (
                         <Content
