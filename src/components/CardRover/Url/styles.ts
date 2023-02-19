@@ -3,13 +3,11 @@ import styled from "styled-components";
 
 
 export const UrlContainer = styled.div`
-margin-top:2rem;
-height: 300px;
+
+height: 250px;
 display: flex;
 align-items: center;
 justify-content: center;
-
-
 
 `
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const DateContainer = styled.div`
 
-margin-top: 1rem;
+
 height: 100px;
 display: flex;
 align-items: center;

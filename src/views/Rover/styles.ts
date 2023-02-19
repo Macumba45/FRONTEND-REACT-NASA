@@ -6,6 +6,7 @@ export const MainRoverContainer = styled.div`
 align-items: center;
 display: flex;
 justify-content: center;
+margin-top: 3rem;
 
 `
 
@@ -49,7 +50,7 @@ export const SyncApiRoverContainer = styled.span`
   height: 3rem;
   align-items: center;
   background-color: white;
-  margin-top: 2rem;
+  margin-top: 5rem;
   
 `
 
@@ -58,5 +59,6 @@ export const SyncApiRoverText = styled.span`
     font-family: ${({ theme }) => theme.fonts.primary};
     color: green;
     font-weight: ${({ theme }) => theme.fontWeights.bold};
+    
 
 `

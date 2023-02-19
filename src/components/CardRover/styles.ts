@@ -6,7 +6,7 @@ display: flex;
 flex-direction: column;
 margin-top: 2rem;
 margin: 10px;
-height: 600px;
+height: 400px;
 width: 300px;
 border-radius: 20px;
 background-color: ${({ theme }) => theme.colors.primary};

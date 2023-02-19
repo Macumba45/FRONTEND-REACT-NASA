@@ -1,6 +1,6 @@
 import { FC } from "react";
 import NavBar from "../../components/NavBar";
-import { MainWelcomeContainer, WelcomeLink, WelcomeContainer } from "./styles";
+import { MainWelcomeContainer, WelcomeLink, WelcomeContainer, RoverPicture, RoverLink, ApodPicture, ApodLink } from "./styles";
 import { Props } from "./type";
 
 const Welcome: FC<Props> = () => {
@@ -11,10 +11,16 @@ const Welcome: FC<Props> = () => {
 
         <>
             <NavBar />
+
             <MainWelcomeContainer>
                 <WelcomeContainer>
-                    <WelcomeLink to="/Apod">Go to Apods</WelcomeLink>
-                    <WelcomeLink to="/Rover">Go to Rovers</WelcomeLink>
+                    <ApodPicture>
+                        <ApodLink to="/Apod">Go to Apod</ApodLink>
+                    </ApodPicture>
+                    <RoverPicture>
+                        <RoverLink to="/Rover">Go to Rovers</RoverLink>
+                    </RoverPicture>
+
                 </WelcomeContainer>
             </MainWelcomeContainer>
         </>

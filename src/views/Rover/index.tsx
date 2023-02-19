@@ -9,13 +9,9 @@ const Rover: FC = () => {
     const [roverData, setRoverData] = useState<any[]>([]); // inicializar la variable apodData como array vacío
     const [isLoading, setIsLoading] = useState(false);
 
-
-
     const SyncApiRover = async () => {
 
-
         setIsLoading(true);
-
 
         try {
 
@@ -58,11 +54,8 @@ const Rover: FC = () => {
             return data;
 
         } catch (error) {
-
             console.log(error)
-
         }
-
     }
 
     useEffect(() => {
@@ -95,7 +88,7 @@ const Rover: FC = () => {
                             nasaId={rover.nasaId}
                             earth_date={rover.earth_date}
                             img_src={rover.img_src}
-                            camera={rover.camera.name} />
+                            camera={{ name: rover.camera.name, full_name: rover.camera.full_name }} />
                     )
                 })}
             </RoverContainerData>

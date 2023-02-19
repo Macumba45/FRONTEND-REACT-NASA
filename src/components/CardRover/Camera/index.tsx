@@ -1,14 +1,15 @@
 import { FC } from "react";
+import { CameraContainer, CameraText } from "./styles";
 import { Props } from "./type";
 
 const Camera: FC<Props> = ({ camera }) => {
 
     return (
-        <div>
-            <p>Name: {camera.name}</p>
-            <p>Full name: {camera.full_name}</p>
-        </div>
+        <CameraContainer>
+            <CameraText>{camera.name}</CameraText>
+            <CameraText>{camera.full_name}</CameraText>
+        </CameraContainer>
     )
 }
 
-export default Camera;
+export default Camera;  
