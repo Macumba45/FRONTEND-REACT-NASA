@@ -74,7 +74,7 @@ export const SyncApiApodContainer = styled.span`
 `
 
 
-export const SyncApiApod = styled.span`
+export const SyncApiApodText = styled.span`
     font-family: ${({ theme }) => theme.fonts.primary};
     color: green;
     font-weight: ${({ theme }) => theme.fontWeights.bold};

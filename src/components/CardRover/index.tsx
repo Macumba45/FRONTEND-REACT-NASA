@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC } from "react";
 import { Content } from "./styles";
 import Date from "./Date";
 import { Props } from "./type"

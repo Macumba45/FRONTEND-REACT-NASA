@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -7,8 +6,6 @@ export const MainRoverContainer = styled.div`
 align-items: center;
 display: flex;
 justify-content: center;
-
-
 
 `
 
@@ -43,5 +40,23 @@ display: flex;
 justify-content: center;
 flex-wrap: wrap;
 margin-top: 1rem;
+
+`
+
+export const SyncApiRoverContainer = styled.span`
+  display: flex;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+  background-color: white;
+  margin-top: 2rem;
+  
+`
+
+
+export const SyncApiRoverText = styled.span`
+    font-family: ${({ theme }) => theme.fonts.primary};
+    color: green;
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
 
 `

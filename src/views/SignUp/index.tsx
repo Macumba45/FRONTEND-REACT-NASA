@@ -1,5 +1,5 @@
 import { FC, useCallback } from "react";
-import { MainFormContainer, Form, SignUpTitle, EmailContainer, PasswordContainer, LabelContainer, Label, Input, ButtonSignUpContainer, LinkLoginContainer, LinkLoginText, ButtonSignUp, LoginBackImg, Error, ErrorFirebaseContainer, ErrorFirebaseText } from "./styles"
+import { MainFormContainer, Form, SignUpTitle, EmailContainer, PasswordContainer, LabelContainer, Label, Input, ButtonSignUpContainer, LinkLoginContainer, LinkLoginText, ButtonSignUp, LoginBackImg, Error } from "./styles"
 import { Props } from "./type"
 import { useState } from "react";
 import NavBar from '../../components/NavBar';

@@ -5,8 +5,8 @@ const Camera: FC<Props> = ({ camera }) => {
 
     return (
         <div>
-            <p>Nombre: {camera.name}</p>
-            <p>Nombre completo: {camera.full_name}</p>
+            <p>Name: {camera.name}</p>
+            <p>Full name: {camera.full_name}</p>
         </div>
     )
 }

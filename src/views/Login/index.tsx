@@ -1,4 +1,4 @@
-import { MainFormContainer, LoginTitle, Form, EmailContainer, PasswordContainer, LabelContainer, Label, Input, LinkSignupContainer, LinkSignupText, ButtonLoginContainer, ButtonLogin, LoginBackImg, Error, ErrorFirebaseContainer, ErrorFirebaseText } from './styles'
+import { MainFormContainer, LoginTitle, Form, EmailContainer, PasswordContainer, LabelContainer, Label, Input, LinkSignupContainer, LinkSignupText, ButtonLoginContainer, ButtonLogin, LoginBackImg, Error } from './styles'
 import { FC, useCallback, useState } from "react";
 import { Props } from "./type"
 import NavBar from '../../components/NavBar';

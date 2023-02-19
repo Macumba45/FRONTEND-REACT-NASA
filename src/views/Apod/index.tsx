@@ -2,7 +2,7 @@ import { FC, useCallback, useEffect, useState } from "react";
 import CardApod from "../../components/CardApod";
 import NavBar from "../../components/NavBar";
 import { getAuthenticatedToken } from "../../services/storage";
-import { MainApodContainer, ApodButton, ApodButtonsLink, ApodContainer, BackgorundImg, SyncApiApod, SyncApiApodContainer } from "./styles";
+import { MainApodContainer, ApodButton, ApodButtonsLink, ApodContainer, SyncApiApodContainer, SyncApiApodText } from "./styles";
 
 const Apod: FC = () => {
 
@@ -84,7 +84,7 @@ const Apod: FC = () => {
                 </ApodButtonsLink>
             </MainApodContainer>
             <SyncApiApodContainer>
-                {isLoading && <SyncApiApod>Synchronizing...</SyncApiApod>}
+                {isLoading && <SyncApiApodText>Synchronizing...</SyncApiApodText>}
             </SyncApiApodContainer>
             <ApodContainer>
                 {apodData.map((apod) => {

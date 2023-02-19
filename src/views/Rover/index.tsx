@@ -1,17 +1,21 @@
-import { FC, useState } from "react";
-import CardApod from "../../components/CardApod";
+import { FC, useEffect, useState } from "react";
 import CardRover from "../../components/CardRover";
 import NavBar from "../../components/NavBar";
 import { getAuthenticatedToken } from "../../services/storage";
-import { MainRoverContainer, RoverButton, RoverContainer, RoverContainerData } from "./styles";
-import { Props } from "./type";
+import { MainRoverContainer, RoverButton, RoverContainer, RoverContainerData, SyncApiRoverContainer, SyncApiRoverText } from "./styles";
 
-const Rover: FC<Props> = () => {
+const Rover: FC = () => {
 
     const [roverData, setRoverData] = useState<any[]>([]); // inicializar la variable apodData como array vacío
+    const [isLoading, setIsLoading] = useState(false);
+
 
 
     const SyncApiRover = async () => {
+
+
+        setIsLoading(true);
+
 
         try {
 
@@ -25,11 +29,13 @@ const Rover: FC<Props> = () => {
                 },
             })
             console.log(response)
+            PrintRover()
 
         } catch (error) {
             console.log(error)
 
         }
+        setIsLoading(false);
 
     }
 
@@ -45,9 +51,11 @@ const Rover: FC<Props> = () => {
                     'Authorization': `Bearer ${token}` // Agregar el token al header 'Authorization'
                 },
             })
-            const data = await response.json(); // obtener los datos de la respuesta
+
+            const data = await response.json();
             console.log(data)
-            setRoverData(data); // guardar los datos en la variable apodData
+            setRoverData(data)
+            return data;
 
         } catch (error) {
 
@@ -57,6 +65,14 @@ const Rover: FC<Props> = () => {
 
     }
 
+    useEffect(() => {
+        const printApodsAsync = async () => {
+            const data = await PrintRover();
+            setRoverData(data);
+        };
+        printApodsAsync();
+    }, [setRoverData]);
+
     return (
 
         <>
@@ -64,21 +80,24 @@ const Rover: FC<Props> = () => {
             <MainRoverContainer>
                 <RoverContainer>
                     <RoverButton onClick={SyncApiRover}>Sync Rover</RoverButton>
-                    <RoverButton onClick={PrintRover}>Print Rover From BBDD</RoverButton>
+                    {/* <RoverButton onClick={PrintRover}>Print Rover From BBDD</RoverButton> */}
                 </RoverContainer>
             </MainRoverContainer>
+            <SyncApiRoverContainer>
+                {isLoading && <SyncApiRoverText>Synchronizing...</SyncApiRoverText>}
+            </SyncApiRoverContainer>
             <RoverContainerData>
-                {/* {roverData.map((rover) => {
+                {roverData.map((rover) => {
                     return (
                         <CardRover
-                            key={rover.earth_date}
+                            key={rover.id}
+                            id={rover.id}
+                            nasaId={rover.nasaId}
                             earth_date={rover.earth_date}
                             img_src={rover.img_src}
-                            camera={rover.date}
-                            url={rover.url}
-                        />
+                            camera={rover.camera.name} />
                     )
-                })} */}
+                })}
             </RoverContainerData>
         </>
 

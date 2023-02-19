@@ -46,7 +46,7 @@ const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
     }, [])
 
 
-    const fetchData = async () => {
+    const fetchData = useCallback(async () => {
         const token = getAuthenticatedToken();
         const response = await fetch('http://localhost:8000/users/favList/', {
             headers: {
@@ -60,7 +60,9 @@ const CardApod: FC<Props> = ({ id, title, date, url, onRemove }) => {
             const apodFavorite = data.apodFavorites.find((item: any) => item.id === id);
             setIsFavorited(apodFavorite !== undefined);
         }
-    };
+    }, [id])
+
+
 
     useEffect(() => {
         fetchData();
