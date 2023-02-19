@@ -27,10 +27,16 @@ position: fixed;
 
 export const RoverButton = styled.button`
 
-    margin-right: 1rem;
+margin-right: 1rem;
     text-align: center;
     color: ${({ theme }) => theme.colors.primary};
     font-family: ${({ theme }) => theme.fonts.primary};
+    background-color: white;
+    border:none;
+    border-radius: 10px;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
 
 
 `
