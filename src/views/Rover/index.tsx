@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import CardApod from "../../components/CardApod";
+import CardRover from "../../components/CardRover";
 import NavBar from "../../components/NavBar";
 import { getAuthenticatedToken } from "../../services/storage";
 import { MainRoverContainer, RoverButton, RoverContainer, RoverContainerData } from "./styles";
@@ -70,10 +71,10 @@ const Rover: FC<Props> = () => {
                 {/* {roverData.map((rover) => {
                     return (
                         <CardRover
-                            key={rover.title}
-                            title={rover.title}
-                            explanation={rover.explanation}
-                            date={rover.date}
+                            key={rover.earth_date}
+                            earth_date={rover.earth_date}
+                            img_src={rover.img_src}
+                            camera={rover.date}
                             url={rover.url}
                         />
                     )
