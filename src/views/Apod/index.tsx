@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import CardApod from "../../components/CardApod";
 import NavBar from "../../components/NavBar";
 import { getAuthenticatedToken } from "../../services/storage";
@@ -14,7 +14,6 @@ const Apod: FC = () => {
     const syncApiApods = async () => {
 
         setIsLoading(true);
-
 
         try {
 
@@ -62,6 +61,9 @@ const Apod: FC = () => {
         }
 
     }
+
+
+
 
     const onRemove = useCallback((id: number) => {
 
