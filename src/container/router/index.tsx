@@ -2,6 +2,7 @@ import { FC, memo } from "react"
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom"
 import { getAuthenticatedToken } from "../../services/storage"
 import Apod from "../../views/Apod"
+import CreateApod from "../../views/CreateApod"
 import Login from "../../views/Login"
 import Profile from "../../views/Profile"
 import Rover from "../../views/Rover"
@@ -50,6 +51,8 @@ const Router: FC = () => {
                 <Route path="/apod" element={<ProtectedRoutes><Apod /></ProtectedRoutes>} />
                 <Route path="/rover" element={<ProtectedRoutes><Rover /></ProtectedRoutes>} />
                 <Route path="/profile" element={<ProtectedRoutes><Profile /></ProtectedRoutes>} />
+                <Route path="/createApod" element={<ProtectedRoutes><CreateApod /></ProtectedRoutes>} />
+
             </Routes>
         </BrowserRouter>
 

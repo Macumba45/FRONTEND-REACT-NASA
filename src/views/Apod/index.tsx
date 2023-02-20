@@ -2,7 +2,7 @@ import { FC, memo, useCallback, useEffect, useState } from "react";
 import CardApod from "../../components/CardApod";
 import NavBar from "../../components/NavBar";
 import { getAuthenticatedToken } from "../../services/storage";
-import { MainApodContainer, ApodButton, ApodButtonsLink, ApodContainer, SyncApiApodContainer, SyncApiApodText } from "./styles";
+import { MainApodContainer, ApodButton, ApodButtonsLink, ApodContainer, SyncApiApodContainer, SyncApiApodText, Footer, GoToCreateApod } from "./styles";
 import { Props } from "./type";
 
 const Apod: FC = () => {
@@ -103,6 +103,10 @@ const Apod: FC = () => {
                 })}
 
             </ApodContainer>
+
+            <Footer>
+                <GoToCreateApod to="/createApod">Create a new APOD</GoToCreateApod>
+            </Footer>
 
         </>
 

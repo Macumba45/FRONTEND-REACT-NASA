@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -61,6 +62,8 @@ justify-content: center;
 flex-wrap: wrap;
 margin-top: 1rem;
 /* background-color: antiquewhite; */
+margin-bottom: 5rem;
+
 
 `
 export const SyncApiApodContainer = styled.span`
@@ -78,6 +81,38 @@ export const SyncApiApodText = styled.span`
     font-family: ${({ theme }) => theme.fonts.primary};
     color: green;
     font-weight: ${({ theme }) => theme.fontWeights.bold};
+
+`
+
+export const Footer = styled.footer`
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.primary};
+  height: 3rem;
+  margin-top: 10rem;
+  position: fixed;
+  bottom: 0;
+
+`
+
+
+export const GoToCreateApod = styled(Link)`
+
+  text-decoration: none;
+  color: white;
+  font-family: ${({ theme }) => theme.fonts.primary};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes.smallest};
+  background-color: white;
+  color: ${({ theme }) => theme.colors.primary};
+  padding: 0.4rem;
+  border-radius: 10px;
+
+
+
 
 `
 
