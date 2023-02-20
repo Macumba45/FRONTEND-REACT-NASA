@@ -1,6 +1,6 @@
 export type Props = {
 
-    id: string
+    id: number
     nasaId: number;
     img_src: string
     earth_date: string

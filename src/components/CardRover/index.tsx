@@ -10,6 +10,7 @@ import Camera from "./Camera";
 
 const CardRover: FC<Props> = ({ id, nasaId, img_src, earth_date, camera }) => {
 
+
     return (
 
         <Content>
@@ -17,7 +18,6 @@ const CardRover: FC<Props> = ({ id, nasaId, img_src, earth_date, camera }) => {
             <Date earth_date={earth_date} />
             <Url img_src={img_src} />
             <Camera camera={{ name: camera.name, full_name: camera.full_name }} />
-
 
         </Content>
 
@@ -28,3 +28,4 @@ const CardRover: FC<Props> = ({ id, nasaId, img_src, earth_date, camera }) => {
 
 
 export default memo(CardRover);
+
