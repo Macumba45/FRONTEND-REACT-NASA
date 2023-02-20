@@ -25,7 +25,9 @@ const Profile: FC = () => {
                 'Authorization': `Bearer ${token}` // Agregar el token al header 'Authorization'
             },
         })
+
         const data = await response.json();
+        console.log(data);
         setUserData(data)
 
     }, []);

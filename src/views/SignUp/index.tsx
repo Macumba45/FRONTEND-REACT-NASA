@@ -5,15 +5,13 @@ import { useState } from "react";
 import NavBar from '../../components/NavBar';
 import { useNavigate } from "react-router-dom";
 import { initialValues } from "../Login/constants";
-import { Field, Formik } from "formik";
+import { Field, FieldProps, Formik } from "formik";
 import { validationSchema } from "./constants";
-// import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignUp: FC<Props> = () => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+
     const navigate = useNavigate();
 
     const handleSubmit = useCallback(
@@ -32,7 +30,7 @@ const SignUp: FC<Props> = () => {
 
                 if (response.ok) {
                     const data = await response.json();
-                    window.localStorage.setItem('token', data);
+                    window.localStorage.setItem('token', JSON.stringify(data));
                     navigate('/welcome')
                 } else {
                     alert(response.statusText);
@@ -61,18 +59,16 @@ const SignUp: FC<Props> = () => {
                         <Form  >
                             <SignUpTitle>SignUp</SignUpTitle>
                             <Field name="email">
-                                {({ field, meta }: { field: any, meta: any }) => (
+                                {({ field, meta }: FieldProps) => (
                                     <EmailContainer>
                                         <LabelContainer>
                                             <Label>Email* </Label>
                                         </LabelContainer>
                                         <Input
                                             $hasError={!!meta?.error}
-                                            value={email}
                                             type="email"
                                             placeholder="Insert your email"
                                             autoComplete="email"
-                                            onChange={(e => setEmail(e.target.value))}
                                             {...field}
                                         />
                                         {!!meta?.error && <Error>{meta.error}</Error>}
@@ -80,18 +76,16 @@ const SignUp: FC<Props> = () => {
                                 )}
                             </Field>
                             <Field name="password">
-                                {({ field, meta }: { field: any, meta: any }) => (
+                                {({ field, meta }: FieldProps) => (
                                     <PasswordContainer>
                                         <LabelContainer>
                                             <Label>Password* </Label>
                                         </LabelContainer>
                                         <Input
                                             $hasError={!!meta?.error}
-                                            value={password}
                                             type="password"
                                             autoComplete="current-password"
                                             placeholder="Insert password"
-                                            onChange={e => setPassword(e.target.value)}
                                             {...field}
                                         />
                                         {meta?.error && <Error>{meta.error}</Error>}

@@ -12,9 +12,6 @@ import { setAuthenticatedToken } from '../../services/storage';
 const Login: FC<Props> = () => {
 
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
 
     const handleSubmit = useCallback(async (values: Props) => {
 
@@ -44,6 +41,8 @@ const Login: FC<Props> = () => {
         }
 
     }, [navigate]
+
+
     );
 
 
@@ -67,11 +66,9 @@ const Login: FC<Props> = () => {
                                         </LabelContainer>
                                         <Input
                                             $hasError={!!meta?.error}
-                                            // value={email}
                                             type="email"
                                             placeholder="Insert your email"
                                             autoComplete="email"
-                                            // onChange={(e => setEmail(e.target.value))}
                                             {...field}
                                         />
                                         {!!meta?.error && <Error>{meta.error}</Error>}
@@ -79,18 +76,16 @@ const Login: FC<Props> = () => {
                                 )}
                             </Field>
                             <Field name="password">
-                                {({ field, meta }: { field: any, meta: any }) => (
+                                {({ field, meta }: FieldProps) => (
                                     <PasswordContainer>
                                         <LabelContainer>
                                             <Label>Password* </Label>
                                         </LabelContainer>
                                         <Input
                                             $hasError={!!meta?.error}
-                                            value={password}
                                             type="password"
                                             autoComplete="current-password"
                                             placeholder="Insert password"
-                                            onChange={e => setPassword(e.target.value)}
                                             {...field}
                                         />
                                         {meta?.error && <Error>{meta.error}</Error>}
