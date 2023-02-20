@@ -1,10 +1,6 @@
+import { Apod } from '../../services/api/apod'
+
 export type Props = {
-
-    id: number
-    title: string
-    date: string
-    url: string
-    onRemove: (id: number) => void
-
-
+  apod: Apod
+  onRemove: (id: string) => void
 }

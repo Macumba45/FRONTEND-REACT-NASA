@@ -6,33 +6,22 @@ import { useNavigate } from 'react-router-dom';
 import { Field, FieldProps, Formik } from 'formik';
 import { validationSchema, initialValues } from './constants';
 import { setAuthenticatedToken } from '../../services/storage';
+import {login} from "../../services/api/auth";
 
 
 
-const Login: FC<Props> = () => {
-
+const Login: FC = () => {
     const navigate = useNavigate();
-
     const handleSubmit = useCallback(async (values: Props) => {
 
         try {
-            const response = await fetch('http://localhost:8000/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: values.email,
-                    password: values.password
-                })
-            });
+            const token = await login(values)
 
-            if (response.ok) {
-                const data = await response.json();
-                setAuthenticatedToken(data)
+            if (token) {
+                setAuthenticatedToken(token)
                 navigate('/welcome')
             } else {
-                alert(response.statusText);
+                alert('Wrong data');
             }
 
         } catch (error: any) {
@@ -40,11 +29,7 @@ const Login: FC<Props> = () => {
 
         }
 
-    }, [navigate]
-
-
-    );
-
+    }, [navigate]);
 
     return (
         <>

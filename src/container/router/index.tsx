@@ -1,4 +1,4 @@
-import { FC, memo } from "react"
+import {FC, memo} from "react"
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom"
 import { getAuthenticatedToken } from "../../services/storage"
 import Apod from "../../views/Apod"
@@ -11,14 +11,10 @@ import Welcome from "../../views/Welcome"
 
 
 const Router: FC = () => {
-
-
     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
-
         const token = getAuthenticatedToken();
         const location = useLocation();
-
-        if (!token || token === null) {
+        if (!token) {
             return <Navigate to="/" replace state={{ from: location }} />;
         }
 
@@ -41,7 +37,6 @@ const Router: FC = () => {
 
 
     return (
-
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<PublicRoute><Login /></PublicRoute>} />
@@ -49,10 +44,9 @@ const Router: FC = () => {
                 <Route path="/signUp" element={<PublicRoute><SignUp /></PublicRoute>} />
                 <Route path="/welcome" element={<ProtectedRoutes><Welcome /></ProtectedRoutes>} />
                 <Route path="/apod" element={<ProtectedRoutes><Apod /></ProtectedRoutes>} />
+                <Route path="/apod/new" element={<ProtectedRoutes><CreateApod /></ProtectedRoutes>} />
                 <Route path="/rover" element={<ProtectedRoutes><Rover /></ProtectedRoutes>} />
                 <Route path="/profile" element={<ProtectedRoutes><Profile /></ProtectedRoutes>} />
-                <Route path="/createApod" element={<ProtectedRoutes><CreateApod /></ProtectedRoutes>} />
-
             </Routes>
         </BrowserRouter>
 

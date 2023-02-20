@@ -4,14 +4,9 @@ import { MainWelcomeContainer, WelcomeContainer, RoverPicture, RoverLink, ApodPi
 import { Props } from "./type";
 
 const Welcome: FC<Props> = () => {
-
-
-
     return (
-
         <>
             <NavBar />
-
             <MainWelcomeContainer>
                 <WelcomeContainer>
                     <ApodPicture>
@@ -20,14 +15,10 @@ const Welcome: FC<Props> = () => {
                     <RoverPicture>
                         <RoverLink to="/Rover">Go to Rovers</RoverLink>
                     </RoverPicture>
-
                 </WelcomeContainer>
             </MainWelcomeContainer>
         </>
-
     )
-
-
 }
 
 export default memo(Welcome);

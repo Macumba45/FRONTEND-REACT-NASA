@@ -1,116 +1,77 @@
-import { FC, memo, useCallback, useEffect, useState } from "react";
-import CardApod from "../../components/CardApod";
-import NavBar from "../../components/NavBar";
-import { getAuthenticatedToken } from "../../services/storage";
-import { MainApodContainer, ApodButton, ApodButtonsLink, ApodContainer, SyncApiApodContainer, SyncApiApodText, Footer, GoToCreateApod } from "./styles";
-import { Props } from "./type";
+import { FC, memo, useCallback, useEffect, useState } from 'react'
+import CardApod from '../../components/CardApod'
+import NavBar from '../../components/NavBar'
+import {
+  MainApodContainer,
+  ApodButton,
+  ApodButtonsLink,
+  ApodContainer,
+  SyncApiApodContainer,
+  SyncApiApodText,
+  Footer,
+  GoToCreateApod,
+} from './styles'
+import { Apod, getApods, syncApods } from '../../services/api/apod'
+import { getFavsApod } from '../../services/api/user'
 
-const Apod: FC = () => {
+const Apods: FC = () => {
+  const [apodData, setApodData] = useState<Apod[]>([]) // inicializar la variable apodData como array vacío
+  const [isLoading, setIsLoading] = useState(false)
 
-    const [apodData, setApodData] = useState<Props[]>([]); // inicializar la variable apodData como array vacío
-    const [isLoading, setIsLoading] = useState(false);
+  const printApods = useCallback(async () => {
+    let apods = await getApods() // obtener los datos de la respuesta
+    const apodFavorites = await getFavsApod()
+    apods = apods.map((apod) => {
+      const isFav = !!apodFavorites?.find((item) => item.id === apod.id)
+      return { ...apod, isFav }
+    })
+    setApodData(apods) // guardar los datos en la variable apodData
 
-    const syncApiApods = async () => {
+    return apods
+  }, [])
 
-        setIsLoading(true);
-
-        try {
-
-            const token = getAuthenticatedToken(); // Obtener el token de localStorage
-            await fetch('http://localhost:8000/sync-api/', {
-
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Agregar el token al header 'Authorization'
-                },
-            })
-
-            printApods()
-
-        } catch (error) {
-            console.log(error)
-        }
-        setIsLoading(false);
+  const syncApiApods = useCallback(async () => {
+    try {
+      console.log('entramos')
+      setIsLoading(true)
+      await syncApods()
+      await printApods()
+    } catch (error) {
+      console.log(error)
     }
+    setIsLoading(false)
+  }, [printApods])
 
-    const printApods = async () => {
+  useEffect(() => {
+    printApods()
+  }, [printApods])
 
-        try {
+  const onRemove = useCallback((id: string) => {
+    setApodData((prev) => prev.filter((apod) => apod.id !== id))
+  }, [])
 
-            const token = getAuthenticatedToken(); // Obtener el token de localStorage
-            const response = await fetch('http://localhost:8000/apods/', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Agregar el token al header 'Authorization'
-                },
-            })
-            const data = await response.json(); // obtener los datos de la respuesta
-            setApodData(data); // guardar los datos en la variable apodData
-            return data;
+  return (
+    <>
+      <NavBar />
+      <MainApodContainer>
+        <ApodButtonsLink>
+          <ApodButton onClick={syncApiApods}>Sync Apod</ApodButton>
+        </ApodButtonsLink>
+      </MainApodContainer>
+      <SyncApiApodContainer>
+        {isLoading && <SyncApiApodText>Synchronizing...</SyncApiApodText>}
+      </SyncApiApodContainer>
+      <ApodContainer>
+        {apodData.map((apod) => {
+          return <CardApod key={apod.id} apod={apod} onRemove={onRemove} />
+        })}
+      </ApodContainer>
 
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    useEffect(() => {
-        const printApodsAsync = async () => {
-            const data = await printApods();
-            setApodData(data);
-        };
-        printApodsAsync();
-    }, [setApodData]);
-
-
-    const onRemove = useCallback((id: number) => {
-
-        setApodData((prev) => prev.filter((apod) => apod.id !== id))
-
-    }, [])
-
-
-    return (
-
-        <>
-            <NavBar />
-
-            <MainApodContainer>
-                <ApodButtonsLink>
-                    <ApodButton onClick={syncApiApods} >Sync Apod</ApodButton>
-                    {/* <ApodButton onClick={printApods}>Print Apod From DB</ApodButton> */}
-
-                </ApodButtonsLink>
-            </MainApodContainer>
-            <SyncApiApodContainer>
-                {isLoading && <SyncApiApodText>Synchronizing...</SyncApiApodText>}
-            </SyncApiApodContainer>
-            <ApodContainer>
-                {apodData.map((apod) => {
-
-                    return (
-
-                        <CardApod
-                            key={apod.id}
-                            title={apod.title}
-                            date={apod.date}
-                            url={apod.url}
-                            id={apod.id}
-                            onRemove={onRemove} />
-                    )
-                })}
-
-            </ApodContainer>
-
-            <Footer>
-                <GoToCreateApod to="/createApod">Create a new APOD</GoToCreateApod>
-            </Footer>
-
-        </>
-
-    )
+      <Footer>
+        <GoToCreateApod to="/apod/new">Create a new APOD</GoToCreateApod>
+      </Footer>
+    </>
+  )
 }
 
-export default memo(Apod);
+export default memo(Apods)
