@@ -1,12 +1,12 @@
 import { FC, memo, useCallback } from "react";
 import { MainFormContainer, Form, SignUpTitle, EmailContainer, PasswordContainer, LabelContainer, Label, Input, ButtonSignUpContainer, LinkLoginContainer, LinkLoginText, ButtonSignUp, LoginBackImg, Error } from "./styles"
 import { Props } from "./type"
-import { useState } from "react";
 import NavBar from '../../components/NavBar';
 import { useNavigate } from "react-router-dom";
 import { initialValues } from "../Login/constants";
 import { Field, FieldProps, Formik } from "formik";
 import { validationSchema } from "./constants";
+import { setAuthenticatedToken } from "../../services/storage";
 
 
 const SignUp: FC<Props> = () => {
@@ -30,7 +30,7 @@ const SignUp: FC<Props> = () => {
 
                 if (response.ok) {
                     const data = await response.json();
-                    window.localStorage.setItem('token', JSON.stringify(data));
+                    setAuthenticatedToken(data)
                     navigate('/welcome')
                 } else {
                     alert(response.statusText);
