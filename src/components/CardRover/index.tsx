@@ -5,9 +5,6 @@ import { Props } from "./type"
 import Url from "./Url";
 import Camera from "./Camera";
 
-
-
-
 const CardRover: FC<Props> = ({ id, nasaId, img_src, earth_date, camera }) => {
 
 
